@@ -9,13 +9,13 @@
     <main>
         <h1>JavaScript Card Games: War</h1>
         <div class="playarea">
-          <div class="playerdeck">
-            <p>Your Deck:</p>
-            <img id="playercards" src="images/card_back.png"></img>
-            <h3 id="playerCardCount"></h3>
-          </div>
-          <div id="playercard" class="playercard"></div>
-          <div class="buttons">
+            <div class="playerdeck">
+                <p>Your Deck:</p>
+                <img id="playercards" src="images/card_back.png"></img>
+                <h3 id="playerCardCount"></h3>
+            </div>
+        <div id="playercard" class="playercard"></div>
+        <div class="buttons">
             <!--<button id="reveal" onclick="deckInventory()">Reveal</button>-->
             <button id="shuffle" onclick="shuffleDeal(deck, playerDeck, computerDeck)">Shuffle & Deal</button>
             <br>
@@ -31,17 +31,17 @@
             <!--<button onclick="imageCount();">Image Count</button>
             <button onclick="imageInfo();">Image Info</button>
             <button onclick="hasChild();">Child</button>-->
-          </div>
-          <div id="computercard" class="computercard"></div>
-          <div class="computerdeck">
+        </div>
+        <div id="computercard" class="computercard"></div>
+        <div class="computerdeck">
             <p>Computer's Deck:</p>
             <img id="computercards" src="images/card_back.png"></img>
             <h3 id="computerCardCount"></h3>
-          </div>
+        </div>
         </div>
         <h2 id="win">You win!</h2>
         <h2 id="lose">Computer wins!</h2>
-      </main>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
