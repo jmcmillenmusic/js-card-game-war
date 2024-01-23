@@ -1,0 +1,47 @@
+body {
+    background-color: #568f56;
+}
+
+main {
+    font-family: monospace;
+}
+
+h1, h2 {
+    text-align: center;
+    background-color: #90EE90;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    border-width: 3px;
+}
+
+h3, p {
+    color: white;
+}
+
+#playercards, #computercards, #win, #lose {
+    visibility: hidden;
+}
+
+.playarea {
+    display: grid;
+    grid-template-columns: repeat(5, 250px);
+    grid-template-rows: 450px;
+    grid-gap: 10px;
+}
+
+.buttons, .playerdeck, .computerdeck, .playercard, .computercard {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+.playerdeck, .computerdeck, .playercard, .computercard {
+    justify-content: center;
+}
+
+#playercards, #computercards, #fulldeck {
+    width: 200px;
+    height: 250px;
+}
