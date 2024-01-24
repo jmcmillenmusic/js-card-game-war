@@ -33,8 +33,13 @@ function shuffle() {
     }
     console.log(playerDeck);
     console.log(computerDeck);
-    // Prevents you from drawing before you shuffle or shuffling after you draw
+    // Shows that cards have been dealt
     document.getElementById("playercards").style.visibility = "visible";
     document.getElementById("computercards").style.visibility = "visible";
     document.getElementById("fulldeck").style.visibility = "hidden";
+    // Prevents you from shuffling and dealing again
+    document.getElementById("shuffle").disabled = "true";
+    // Shows the number of cards in your deck and the computer's deck
+    document.getElementById("playerCardCount").innerText = playerDeck.length;
+    document.getElementById("computerCardCount").innerText = computerDeck.length;
 }
