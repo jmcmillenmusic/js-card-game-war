@@ -4,7 +4,8 @@ body {
 
 main {
     font-family: monospace;
-    width: 90%;
+    width: 80%;
+    margin: 0 auto;
 }
 
 h1, h2 {
@@ -27,9 +28,9 @@ h3, p {
 
 .playarea {
     display: grid;
-    grid-template-columns: repeat(5, 250px);
+    grid-template-columns: repeat(5, auto);
     grid-template-rows: 450px;
-    grid-gap: 10px;
+    grid-gap: 2%;
 }
 
 .buttons, .playerdeck, .computerdeck, .playercard, .computercard {

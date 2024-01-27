@@ -38,7 +38,8 @@ function shuffle() {
     document.getElementById("computercards").style.visibility = "visible";
     document.getElementById("fulldeck").style.visibility = "hidden";
     // Prevents you from shuffling and dealing again
-    document.getElementById("shuffle").disabled = "true";
+    document.getElementById("shuffle").disabled = true;
+    document.getElementById("playButton").disabled = false;
     // Shows the number of cards in your deck and the computer's deck
     document.getElementById("playerCardCount").innerText = playerDeck.length;
     document.getElementById("computerCardCount").innerText = computerDeck.length;

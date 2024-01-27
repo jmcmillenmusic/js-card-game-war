@@ -16,10 +16,9 @@
             </div>
         <div id="playercard" class="playercard"></div>
         <div class="buttons">
-            <!--<button id="reveal" onclick="deckInventory()">Reveal</button>-->
             <button id="shuffle" onclick="shuffle()">Shuffle & Deal</button>
             <br>
-            <button id="playButton" onclick="play(playerDeck, playerPlay, computerDeck, computerPlay); addPlayerCard(); addComputerCard(); assignCompare();">Play</button>
+            <button id="playButton" onclick="play(playerDeck, playerPlay, computerDeck, computerPlay); addPlayerCard(); addComputerCard(); assignCompare();" disabled>Play</button>
             <br>
             <button id="take" onclick="removeCards(); takeCards();" disabled>Take</button>
             <br>
@@ -28,9 +27,6 @@
             <button id="war" onclick="removeCards(); war(playerDeck, playerPlay, computerDeck, computerPlay); addPlayerCard(); addComputerCard(); assignCompare();" disabled>WAR!</button>
             <br>
             <img id="fulldeck" src="images/card_back.png" width=100></img>
-            <!--<button onclick="imageCount();">Image Count</button>
-            <button onclick="imageInfo();">Image Info</button>
-            <button onclick="hasChild();">Child</button>-->
         </div>
         <div id="computercard" class="computercard"></div>
         <div class="computerdeck">
