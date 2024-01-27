@@ -48,3 +48,21 @@ h3, p {
     width: 200px;
     height: 250px;
 }
+
+.fullcard {
+    display: flex;
+    position: relative;
+    width: 200px;
+    height: 280px;
+    align-items: center;
+}
+
+.cardImg, .cardText {
+    position: absolute;
+    width: 100%;
+}
+
+.cardText {
+    font-size: 96px;
+    text-align: center;
+}
