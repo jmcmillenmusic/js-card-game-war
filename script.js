@@ -1,5 +1,5 @@
 // Import createCard() from createCard.js
-import createCard from './createCard';
+import createCard from './createCard.js';
 
 // Initializes the entire deck, your deck, and the computer's deck as empty arrays
 const fullDeck = [];
@@ -10,16 +10,9 @@ const computerDeck = [];
 const playerPlay = [];
 const computerPlay = [];
 
-// Adds event listeners to buttons here instead of onclick() functions in index.html
-const shuffleButton = document.getElementById('shuffle');
-shuffleButton.addEventListener('click', shuffle());
-const playButton = document.getElementById('play');
-playButton.addEventListener('click', play());
-
 // Establishes suits and values of cards in a standard 52-card deck
 const suits = ['clubs', 'diamonds', 'hearts', 'spades'];
 const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
-
 
 // Creates and shuffles the deck using the Fisher-Yates Algorithm
 function shuffle() {
@@ -58,6 +51,10 @@ function shuffle() {
     document.getElementById('playerCardCount').innerText = playerDeck.length;
     document.getElementById('computerCardCount').innerText = computerDeck.length;
 }
+
+// Adds event listeners to the Shuffle button instead of onclick() functions in index.html
+const shuffleButton = document.getElementById('shuffle');
+shuffleButton.addEventListener("click", shuffle);
 
 function play() {
     // Plays your first card and the computer's first card
@@ -111,3 +108,7 @@ function play() {
     //     }
     // }
 }
+
+// Adds event listeners to the Play button instead of onclick() functions in index.html
+const playButton = document.getElementById('play');
+playButton.addEventListener('click', play);
