@@ -1,7 +1,8 @@
 function createCard() {
     const playerCardArea = document.getElementById('playercard');
     const computerCardArea = document.getElementById('computercard');
-    for (i = 0; i < (playerPlay.length + computerPlay.length); i++) {
+    console.log(playerPlay.length + computerPlay.length);
+    for (var i = 0; i < (playerPlay.length + computerPlay.length); i++) {
         // Creates a container div with the fullcard class under playerCardArea
         const cardContainer = document.createElement('div');
         cardContainer.setAttribute('class', 'fullcard');
@@ -42,4 +43,4 @@ function createCard() {
     }
 }
 
-export default {createCard};
+export default createCard;
