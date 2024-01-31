@@ -62,10 +62,6 @@ const shuffleButton = document.getElementById('shuffle');
 shuffleButton.addEventListener("click", shuffle);
 
 function play() {
-    // Initializes empty arrays to store the cards being played
-    const playerPlay = [];
-    const computerPlay = [];
-
     // Plays your first card and the computer's first card
     if (playerDeck.length > 0 && computerDeck.length > 0) {
         playerPlay.push(playerDeck[0]);
@@ -81,26 +77,69 @@ function play() {
     document.getElementById('play').disabled = true;
     // createCard();
 
-    // Creates a container div with the fullcard class under playerCardArea
-    const playerCardArea = document.getElementById('playercard');
-    const cardContainer = document.createElement('div');
-    cardContainer.setAttribute('class', 'fullcard');
-    playerCardArea.appendChild(cardContainer);
-
-    // Creates the card image with the cardImg class under cardContainer
-    var cardImg = document.createElement('img');
-    cardImg.setAttribute('class', 'cardImg');
-    cardImg.src = 'images/blank_card.png';
-    cardContainer.appendChild(cardImg);
-
-    // Creates the card text with the cardText class under cardContainer
-    var cardText = document.createElement('h3');
-    cardText.setAttribute("class", "cardText");
-    cardContainer.appendChild(cardText);
-    
-    // Sets the card value, suit, and text color
     for (let i = 0; i < playerPlay.length; i++) {
-        var card = playerPlay[i];
+        const playerCardArea = document.getElementById('playercard');
+
+        // Creates a container div with the fullcard class under playerCardArea
+        const cardContainer = document.createElement('div');
+        cardContainer.setAttribute('class', 'fullcard');
+        playerCardArea.appendChild(cardContainer);
+
+        // Creates the card image with the cardImg class under cardContainer
+        const cardImg = document.createElement('img');
+        cardImg.setAttribute('class', 'cardImg');
+        cardImg.src = 'images/blank_card.png';
+        cardContainer.appendChild(cardImg);
+
+        // Creates the card text with the cardText class under cardContainer
+        const cardText = document.createElement('h3');
+        cardText.setAttribute("class", "cardText");
+        cardContainer.appendChild(cardText);
+
+        // Sets the card value, suit, and text color
+        const card = playerPlay[i];
+        cardContainer.id = `${card.Value} of ${card.Suit}`;
+        switch (true) {
+            case (card.Suit === "clubs"):
+                cardText.textContent = `${card.Value}\u2663`;
+                cardText.style.color = "black";
+                break;
+            case (card.Suit === "diamonds"):
+                cardText.textContent = `${card.Value}\u2666`;
+                cardText.style.color = "red";
+                break;
+            case (card.Suit === "hearts"):
+                cardText.textContent = `${card.Value}\u2665`;
+                cardText.style.color = "red";
+                break;
+            case (card.Suit === "spades"):
+                cardText.textContent = `${card.Value}\u2660`;
+                cardText.style.color = "black";
+                break;
+        }
+    }
+
+    for (let i = 0; i < computerPlay.length; i++) {
+        const computerCardArea = document.getElementById('computercard');
+
+        // Creates a container div with the fullcard class under computerCardArea
+        const cardContainer = document.createElement('div');
+        cardContainer.setAttribute('class', 'fullcard');
+        computerCardArea.appendChild(cardContainer);
+
+        // Creates the card image with the cardImg class under cardContainer
+        const cardImg = document.createElement('img');
+        cardImg.setAttribute('class', 'cardImg');
+        cardImg.src = 'images/blank_card.png';
+        cardContainer.appendChild(cardImg);
+
+        // Creates the card text with the cardText class under cardContainer
+        const cardText = document.createElement('h3');
+        cardText.setAttribute("class", "cardText");
+        cardContainer.appendChild(cardText);
+
+        // Sets the card value, suit, and text color
+        const card = computerPlay[i];
         cardContainer.id = `${card.Value} of ${card.Suit}`;
         switch (true) {
             case (card.Suit === "clubs"):
