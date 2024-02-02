@@ -61,8 +61,8 @@ function shuffle() {
 const shuffleButton = document.getElementById('shuffle');
 shuffleButton.addEventListener("click", shuffle);
 
+// Plays the first card from your deck and the computer's deck
 function play() {
-    // Plays your first card and the computer's first card
     if (playerDeck.length > 0 && computerDeck.length > 0) {
         playerPlay.push(playerDeck[0]);
         playerDeck.shift(playerDeck[0]);
@@ -77,6 +77,7 @@ function play() {
     document.getElementById('play').disabled = true;
     // createCard();
 
+    // TODO: Make these 2 for loops into a singular for loop if possible
     for (let i = 0; i < playerPlay.length; i++) {
         const playerCardArea = document.getElementById('playercard');
 
@@ -162,8 +163,62 @@ function play() {
     }
 }
 
+// Compares your card and the computer's card to see which card has a higher value
+function compare() {
+    let playerCardValue = playerPlay[playerPlay.length - 1].Value;
+    let computerCardValue = computerPlay[computerPlay.length - 1].Value;
+    
+    // Sets the player's card value and/or computer card's value to a number for comparing face cards (J, Q, K) and aces; otherwise, converts the cards' value from a string to a number
+    switch (true) {
+        case (playerCardValue === 'J'):
+            playerCardValue = 11;
+            break;
+        case (playerCardValue === 'Q'):
+            playerCardValue = 12;
+            break;
+        case (playerCardValue === 'K'):
+            playerCardValue = 13;
+            break;
+        case (playerCardValue === 'A'):
+            playerCardValue = 14;
+            break;
+        default:
+            playerCardValue = Number(playerCardValue);
+            break;
+    }
+    switch (true) {
+        case (computerCardValue === 'J'):
+            computerCardValue = 11;
+            break;
+        case (computerCardValue === 'Q'):
+            computerCardValue = 12;
+            break;
+        case (computerCardValue === 'K'):
+            computerCardValue = 13;
+            break;
+        case (computerCardValue === 'A'):
+            computerCardValue = 14;
+            break;
+        default:
+            computerCardValue = Number(computerCardValue);
+            break;
+    }
+    console.log(playerCardValue);
+    console.log(computerCardValue);
+
+    // Enables buttons allowing the player to resolve each play by either taking cards, giving up cards, or going to war
+    if (playerCardValue > computerCardValue) {
+        document.getElementById('take').disabled = false;
+    } else if (playerCardValue < computerCardValue) {
+        document.getElementById('give').disabled = false;
+    } else {
+        document.getElementById('war').disabled = false;
+    }
+}
+
 // Adds event listeners to the Play button instead of onclick() functions in index.html
 const playButton = document.getElementById('play');
 playButton.addEventListener('click', play);
+playButton.addEventListener('click', compare);
 
 // export default {playerPlay, computerPlay};

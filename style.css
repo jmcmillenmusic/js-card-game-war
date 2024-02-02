@@ -26,6 +26,7 @@ h3, p {
     visibility: hidden;
 }
 
+/* TODO: Use display: flex to allow for mobile functionality */
 .playarea {
     display: grid;
     grid-template-columns: repeat(5, auto);
