@@ -221,4 +221,34 @@ const playButton = document.getElementById('play');
 playButton.addEventListener('click', play);
 playButton.addEventListener('click', compare);
 
+function take() {
+    for (let i = playerPlay.length; i > 0; i--) {
+        playerDeck.push(playerPlay[0]);
+        playerPlay.shift(playerPlay[0]);
+    }
+    for (let i = computerPlay.length; i > 0; i--) {
+        playerDeck.push(computerPlay[0]);
+        computerPlay.shift(computerPlay[0]);
+    }
+    console.log(playerDeck.length, computerDeck.length);
+
+    // var playerCardArea = document.getElementById('playercard');
+    // var computerCardArea = document.getElementById('computercard');
+    // var card = document.querySelectorAll('.fullcard');
+    // playerCardArea.removeChild(card);
+    // computerCardArea.removeChild(card);
+
+    // Toggles the Take and Play buttons to set up the next play
+    document.getElementById('take').disabled = true;
+    document.getElementById('play').disabled = false;
+
+    // Sets the new number of cards in your deck and the computer's deck
+    document.getElementById('playerCardCount').innerText = playerDeck.length;
+    document.getElementById('computerCardCount').innerText = computerDeck.length;
+}
+
+// Adds an event listener to the Take button instead of onclick() functions in index.html
+const takeButton = document.getElementById('take');
+takeButton.addEventListener('click', take);
+
 // export default {playerPlay, computerPlay};
