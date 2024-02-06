@@ -232,9 +232,36 @@ function take() {
     }
     console.log(playerDeck.length, computerDeck.length);
 
-    // var playerCardArea = document.getElementById('playercard');
-    // var computerCardArea = document.getElementById('computercard');
-    // var card = document.querySelectorAll('.fullcard');
+    // var playArea = document.getElementsByClassName('playarea');
+    var playerCardArea = document.getElementById('playercard');
+    var computerCardArea = document.getElementById('computercard');
+    var cardIds = [...document.querySelectorAll('.fullcard')].map(({ id }) => id);
+    var card = document.querySelectorAll('.fullcard');
+
+    // while (playerCardArea.hasChildNodes) {
+    //     playerCardArea.removeChild(card);
+    // }
+    // while (computerCardArea.hasChildNodes) {
+    //     computerCardArea.removeChild(card);
+    // }
+
+    // for (let i = 0; i < cardIds.length; i++) {
+    //     while (playerCardArea.hasChildNodes) {
+    //         playerCardArea.removeChild(card[i]);
+    //     }
+    //     while (computerCardArea.hasChildNodes) {
+    //         computerCardArea.removeChild(card[i]);
+    //     }
+    // }
+
+    for (let i = 0; i < cardIds.length - 1; i++) {
+        playerCardArea.removeChild(card[i]);
+        computerCardArea.removeChild(card[i]);
+    }
+
+    // for (let i = 0; i < cardIds.length + 1; i++) {
+    //     playArea.removeChild(card[i]);
+    // }
     // playerCardArea.removeChild(card);
     // computerCardArea.removeChild(card);
 
