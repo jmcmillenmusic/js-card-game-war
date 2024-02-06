@@ -222,6 +222,22 @@ playButton.addEventListener('click', play);
 playButton.addEventListener('click', compare);
 
 function take() {
+    var playerCardArea = document.getElementById('playercard');
+    var computerCardArea = document.getElementById('computercard');
+    var playerCardIds = [...document.querySelectorAll('.playercard .fullcard')].map(({ id }) => id);
+    var computerCardIds = [...document.querySelectorAll('.computercard .fullcard')].map(({ id }) => id);
+    var playerCards = document.querySelectorAll('.playercard .fullcard');
+    var computerCards = document.querySelectorAll('.computercard .fullcard');
+    console.log(playerCardIds);
+    console.log(computerCardIds);
+
+    for (let i = 0; i < playerCardIds.length; i++) {
+        playerCardArea.removeChild(playerCards[i]);
+    }
+    for (let i = 0; i < computerCardIds.length; i++) {
+        computerCardArea.removeChild(computerCards[i]);
+    }
+    
     for (let i = playerPlay.length; i > 0; i--) {
         playerDeck.push(playerPlay[0]);
         playerPlay.shift(playerPlay[0]);
@@ -231,39 +247,6 @@ function take() {
         computerPlay.shift(computerPlay[0]);
     }
     console.log(playerDeck.length, computerDeck.length);
-
-    // var playArea = document.getElementsByClassName('playarea');
-    var playerCardArea = document.getElementById('playercard');
-    var computerCardArea = document.getElementById('computercard');
-    var cardIds = [...document.querySelectorAll('.fullcard')].map(({ id }) => id);
-    var card = document.querySelectorAll('.fullcard');
-
-    // while (playerCardArea.hasChildNodes) {
-    //     playerCardArea.removeChild(card);
-    // }
-    // while (computerCardArea.hasChildNodes) {
-    //     computerCardArea.removeChild(card);
-    // }
-
-    // for (let i = 0; i < cardIds.length; i++) {
-    //     while (playerCardArea.hasChildNodes) {
-    //         playerCardArea.removeChild(card[i]);
-    //     }
-    //     while (computerCardArea.hasChildNodes) {
-    //         computerCardArea.removeChild(card[i]);
-    //     }
-    // }
-
-    for (let i = 0; i < cardIds.length - 1; i++) {
-        playerCardArea.removeChild(card[i]);
-        computerCardArea.removeChild(card[i]);
-    }
-
-    // for (let i = 0; i < cardIds.length + 1; i++) {
-    //     playArea.removeChild(card[i]);
-    // }
-    // playerCardArea.removeChild(card);
-    // computerCardArea.removeChild(card);
 
     // Toggles the Take and Play buttons to set up the next play
     document.getElementById('take').disabled = true;
