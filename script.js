@@ -221,16 +221,18 @@ const playButton = document.getElementById('play');
 playButton.addEventListener('click', play);
 playButton.addEventListener('click', compare);
 
+// Lets you take the cards that you and the computer play if you win
 function take() {
     var playerCardArea = document.getElementById('playercard');
     var computerCardArea = document.getElementById('computercard');
-    var playerCardIds = [...document.querySelectorAll('.playercard .fullcard')].map(({ id }) => id);
-    var computerCardIds = [...document.querySelectorAll('.computercard .fullcard')].map(({ id }) => id);
     var playerCards = document.querySelectorAll('.playercard .fullcard');
     var computerCards = document.querySelectorAll('.computercard .fullcard');
+    var playerCardIds = [...document.querySelectorAll('.playercard .fullcard')].map(({ id }) => id);
+    var computerCardIds = [...document.querySelectorAll('.computercard .fullcard')].map(({ id }) => id);
     console.log(playerCardIds);
     console.log(computerCardIds);
 
+    // Removes the images of all cards
     for (let i = 0; i < playerCardIds.length; i++) {
         playerCardArea.removeChild(playerCards[i]);
     }
@@ -238,6 +240,7 @@ function take() {
         computerCardArea.removeChild(computerCards[i]);
     }
     
+    // Moves the played cards to the end of the player deck
     for (let i = playerPlay.length; i > 0; i--) {
         playerDeck.push(playerPlay[0]);
         playerPlay.shift(playerPlay[0]);
@@ -260,5 +263,48 @@ function take() {
 // Adds an event listener to the Take button instead of onclick() functions in index.html
 const takeButton = document.getElementById('take');
 takeButton.addEventListener('click', take);
+
+// Lets you take the cards that you and the computer play if you win
+function give() {
+    var playerCardArea = document.getElementById('playercard');
+    var computerCardArea = document.getElementById('computercard');
+    var playerCards = document.querySelectorAll('.playercard .fullcard');
+    var computerCards = document.querySelectorAll('.computercard .fullcard');
+    var playerCardIds = [...document.querySelectorAll('.playercard .fullcard')].map(({ id }) => id);
+    var computerCardIds = [...document.querySelectorAll('.computercard .fullcard')].map(({ id }) => id);
+    console.log(playerCardIds);
+    console.log(computerCardIds);
+
+    // Removes the images of all cards
+    for (let i = 0; i < playerCardIds.length; i++) {
+        playerCardArea.removeChild(playerCards[i]);
+    }
+    for (let i = 0; i < computerCardIds.length; i++) {
+        computerCardArea.removeChild(computerCards[i]);
+    }
+    
+    // Moves the played cards to the end of the computer deck
+    for (let i = playerPlay.length; i > 0; i--) {
+        computerDeck.push(playerPlay[0]);
+        playerPlay.shift(playerPlay[0]);
+    }
+    for (let i = computerPlay.length; i > 0; i--) {
+        computerDeck.push(computerPlay[0]);
+        computerPlay.shift(computerPlay[0]);
+    }
+    console.log(playerDeck.length, computerDeck.length);
+
+    // Toggles the Take and Play buttons to set up the next play
+    document.getElementById('give').disabled = true;
+    document.getElementById('play').disabled = false;
+
+    // Sets the new number of cards in your deck and the computer's deck
+    document.getElementById('playerCardCount').innerText = playerDeck.length;
+    document.getElementById('computerCardCount').innerText = computerDeck.length;
+}
+
+// Adds an event listener to the Take button instead of onclick() functions in index.html
+const giveButton = document.getElementById('give');
+giveButton.addEventListener('click', give);
 
 // export default {playerPlay, computerPlay};
