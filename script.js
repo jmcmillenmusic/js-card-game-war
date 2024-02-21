@@ -320,6 +320,7 @@ function war() {
             computerDeck.shift(computerDeck[0]);
         }
     }
+    document.getElementById('war').disabled = true;
     console.log(playerPlay);
     console.log(computerPlay);
 }

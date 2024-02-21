@@ -34,7 +34,7 @@ h3, p {
     grid-gap: 2%;
 }
 
-.buttons, .playerdeck, .computerdeck, .playercard, .computercard {
+.buttons, .playerdeck, .computerdeck {
     display: flex;
     flex-direction: column;
     justify-content: top;
@@ -45,6 +45,10 @@ h3, p {
     justify-content: center;
 }
 
+.playercard, .computercard {
+    position: relative;
+}
+
 #playercards, #computercards, #fulldeck {
     width: 200px;
     height: 250px;
@@ -52,10 +56,12 @@ h3, p {
 
 .fullcard {
     display: flex;
-    position: relative;
+    position: absolute;
     width: 200px;
     height: 280px;
     align-items: center;
+    left: -55px;
+    top: 80px;
 }
 
 .cardImg, .cardText {
