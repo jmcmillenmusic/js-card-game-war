@@ -1,6 +1,3 @@
-// Import createCard() from createCard.js
-// import createCard from './createCard.js';
-
 // Initializes the entire deck, your deck, and the computer's deck as empty arrays
 const fullDeck = [];
 const playerDeck = [];
@@ -40,13 +37,12 @@ function shuffle() {
             fullDeck.shift(fullDeck[0]);
         }
     }
-    console.log(playerDeck);
-    console.log(computerDeck);
+    // console.log(playerDeck);
+    // console.log(computerDeck);
 
     // Shows that cards have been dealt
     document.getElementById('playercards').style.visibility = 'visible';
     document.getElementById('computercards').style.visibility = 'visible';
-    document.getElementById('fulldeck').style.visibility = 'hidden';
     
     // Prevents you from shuffling and dealing again
     document.getElementById('shuffle').disabled = true;
@@ -69,13 +65,12 @@ function play() {
         computerPlay.push(computerDeck[0]);
         computerDeck.shift(computerDeck[0]);
     }
-    console.log(playerPlay);
-    console.log(computerPlay);
-    console.log(playerDeck.length, computerDeck.length);
+    // console.log(playerPlay);
+    // console.log(computerPlay);
+    // console.log(playerDeck.length, computerDeck.length);
 
     // Prevents you from clicking the Play button before the play is resolved
     document.getElementById('play').disabled = true;
-    // createCard();
 }
 
 function createCards() {
@@ -206,8 +201,8 @@ function compare() {
             computerCardValue = Number(computerCardValue);
             break;
     }
-    console.log(playerCardValue);
-    console.log(computerCardValue);
+    // console.log(playerCardValue);
+    // console.log(computerCardValue);
 
     // Enables buttons allowing the player to resolve each play by either taking cards, giving up cards, or going to war
     if (playerCardValue > computerCardValue) {
@@ -233,8 +228,8 @@ function removeCards() {
     var computerCards = document.querySelectorAll('.computercard .fullcard');
     var playerCardIds = [...document.querySelectorAll('.playercard .fullcard')].map(({ id }) => id);
     var computerCardIds = [...document.querySelectorAll('.computercard .fullcard')].map(({ id }) => id);
-    console.log(playerCardIds);
-    console.log(computerCardIds);
+    // console.log(playerCardIds);
+    // console.log(computerCardIds);
     
     for (let i = 0; i < playerCardIds.length; i++) {
         playerCardArea.removeChild(playerCards[i]);
@@ -255,7 +250,7 @@ function take() {
         playerDeck.push(computerPlay[0]);
         computerPlay.shift(computerPlay[0]);
     }
-    console.log(playerDeck.length, computerDeck.length);
+    // console.log(playerDeck.length, computerDeck.length);
 
     // Toggles the Take and Play buttons to set up the next play
     document.getElementById('take').disabled = true;
@@ -282,7 +277,7 @@ function give() {
         computerDeck.push(computerPlay[0]);
         computerPlay.shift(computerPlay[0]);
     }
-    console.log(playerDeck.length, computerDeck.length);
+    // console.log(playerDeck.length, computerDeck.length);
 
     // Toggles the Give and Play buttons to set up the next play
     document.getElementById('give').disabled = true;
@@ -321,8 +316,8 @@ function war() {
         }
     }
     document.getElementById('war').disabled = true;
-    console.log(playerPlay);
-    console.log(computerPlay);
+    // console.log(playerPlay);
+    // console.log(computerPlay);
 }
 
 // Adds an event listener to the War button instead of onclick() functions in index.html
@@ -331,5 +326,3 @@ warButton.addEventListener('click', removeCards)
 warButton.addEventListener('click', war);
 warButton.addEventListener('click', createCards);
 warButton.addEventListener('click', compare);
-
-// export default {playerPlay, computerPlay};
