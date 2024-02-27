@@ -1,13 +1,16 @@
+/* Sets background color */
 body {
     background-color: #568f56;
 }
 
+/* Sets attributes for font, width, and margins */
 main {
     font-family: monospace;
     width: 80%;
     margin: 0 auto;
 }
 
+/* Sets all text attributes */
 h1, h2 {
     text-align: center;
     background-color: #90EE90;
@@ -22,10 +25,12 @@ h3, p {
     font-size: 22px;
 }
 
+/* Hides card images before cards are shuffled and dealt; hides win/lose conditions if there is no winner yet*/
 #playercards, #computercards, #win, #lose {
     visibility: hidden;
 }
 
+/* Flexibly displays the playarea as a row */
 .playarea {
     display: flex;
     flex-direction: row;
@@ -33,6 +38,7 @@ h3, p {
     justify-content: space-evenly;
 }
 
+/* Flexibly displays all items within the playarea as columns */
 .buttons, .playerdeck, .computerdeck, .playercard, .computercard {
     display: flex;
     flex-direction: column;
@@ -40,6 +46,25 @@ h3, p {
     justify-content: space-evenly;
 }
 
+/* Sets attributes for buttons */
+button {
+    width: 100%;
+    font-size: 24px;
+    background-color: #90EE90;
+    border-radius: 16px;
+}
+
+button:disabled {
+    background-color: silver;
+    color: gray;
+    opacity: 0.5;
+}
+
+button:hover {
+    background-color: white;
+}
+
+/* Sets content to the center of each area within the playarea */
 .playerdeck, .computerdeck, .playercard, .computercard {
     justify-content: center;
 }
@@ -48,12 +73,14 @@ h3, p {
     position: relative;
 }
 
+/* Sets the sizes and rounded corners for face-down cards */
 #playercards, #computercards {
     width: 200px;
     height: 280px;
     border-radius: 20px;
 }
 
+/* Sets attributes of all face-up cards */
 .fullcard {
     display: flex;
     position: relative;
@@ -70,4 +97,67 @@ h3, p {
 .cardText {
     font-size: 96px;
     text-align: center;
+}
+
+/* Sets the following style changes for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Displays all items in 1 column */
+    main {
+        flex-flow: column;
+        /* width: 100%; */
+    }
+
+    /* Reorders the elements within the playarea */
+    .playerdeck {
+        order: 2;
+    }
+
+    .playercard {
+        order: 3;
+    }
+
+    .buttons {
+        order: 1;
+    }
+
+    .computercard {
+        order: 5;
+    }
+
+    .computerdeck {
+        order: 4;
+    }
+
+    /* Removes the margin on win condition text */
+    h2 {
+        margin: 0;
+    }
+
+    /* Shrinks face-up cards */
+    .fullcard {
+        width: 100px;
+        height: 140px;
+    }
+
+    .cardText {
+        font-size: 48px;
+    }
+
+    .playerdeck, .computerdeck {
+        width: 60%;
+        justify-content: space-evenly;
+    }
+
+    .computerdeck p {
+        text-align: center;
+    }
+
+    /* Removes face-down cards to make room for more important elements */
+    #playercards, #computercards {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    
 }
