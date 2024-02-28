@@ -70,7 +70,9 @@ button:hover {
 }
 
 .playercard, .computercard {
-    position: relative;
+    display: flex;
+    align-items: center;
+    position: relative; 
 }
 
 /* Sets the sizes and rounded corners for face-down cards */
@@ -83,7 +85,7 @@ button:hover {
 /* Sets attributes of all face-up cards */
 .fullcard {
     display: flex;
-    position: relative;
+    /* position: absolute; */
     width: 200px;
     height: 280px;
     align-items: center;
