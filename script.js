@@ -320,9 +320,47 @@ function war() {
     // console.log(computerPlay);
 }
 
+// Removes the images of all played cards
+function stackCards() {
+    // // var playerCardArea = document.getElementById('playercard');
+    // // var computerCardArea = document.getElementById('computercard');
+    // var playerCards = document.querySelectorAll('.playercard .fullcard');
+    // var computerCards = document.querySelectorAll('.computercard .fullcard');
+    // var playerCardIds = [...document.querySelectorAll('.playercard .fullcard')].map(({ id }) => id);
+    // var computerCardIds = [...document.querySelectorAll('.computercard .fullcard')].map(({ id }) => id);
+    
+    // for (let i = 0; i < playerCardIds.length; i++) {
+    //     playerCards[i].setAttribute('position', 'absolute');
+    //     playerCards[i].style.zIndex = i;
+    //     // console.log(playerCards[i].style.zIndex);
+    // }
+    // for (let i = 0; i < computerCardIds.length; i++) {
+    //     computerCards[i].setAttribute('position', 'absolute');
+    //     computerCards[i].style.zIndex = i;
+    //     // console.log(computerCards[i].style.zIndex);
+    // }
+
+    var playerCardArea = document.getElementById('playercard');
+    var computerCardArea = document.getElementById('computercard');
+    var playerCards = document.querySelectorAll('.playercard .fullcard');
+    var computerCards = document.querySelectorAll('.computercard .fullcard');
+    var playerCardIds = [...document.querySelectorAll('.playercard .fullcard')].map(({ id }) => id);
+    var computerCardIds = [...document.querySelectorAll('.computercard .fullcard')].map(({ id }) => id);
+    // console.log(playerCardIds);
+    // console.log(computerCardIds);
+    
+    for (let i = 0; i < playerCardIds.length - 1; i++) {
+        playerCardArea.removeChild(playerCards[i]);
+    }
+    for (let i = 0; i < computerCardIds.length - 1; i++) {
+        computerCardArea.removeChild(computerCards[i]);
+    }
+}
+
 // Adds an event listener to the War button instead of onclick() functions in index.html
 const warButton = document.getElementById('war');
 warButton.addEventListener('click', removeCards)
 warButton.addEventListener('click', war);
 warButton.addEventListener('click', createCards);
+warButton.addEventListener('click', stackCards);
 warButton.addEventListener('click', compare);
