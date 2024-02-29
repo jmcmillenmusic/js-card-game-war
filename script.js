@@ -320,34 +320,14 @@ function war() {
     // console.log(computerPlay);
 }
 
-// Removes the images of all played cards
+// Removes the images of all played cards except for the last one for War purposes
 function stackCards() {
-    // // var playerCardArea = document.getElementById('playercard');
-    // // var computerCardArea = document.getElementById('computercard');
-    // var playerCards = document.querySelectorAll('.playercard .fullcard');
-    // var computerCards = document.querySelectorAll('.computercard .fullcard');
-    // var playerCardIds = [...document.querySelectorAll('.playercard .fullcard')].map(({ id }) => id);
-    // var computerCardIds = [...document.querySelectorAll('.computercard .fullcard')].map(({ id }) => id);
-    
-    // for (let i = 0; i < playerCardIds.length; i++) {
-    //     playerCards[i].setAttribute('position', 'absolute');
-    //     playerCards[i].style.zIndex = i;
-    //     // console.log(playerCards[i].style.zIndex);
-    // }
-    // for (let i = 0; i < computerCardIds.length; i++) {
-    //     computerCards[i].setAttribute('position', 'absolute');
-    //     computerCards[i].style.zIndex = i;
-    //     // console.log(computerCards[i].style.zIndex);
-    // }
-
     var playerCardArea = document.getElementById('playercard');
     var computerCardArea = document.getElementById('computercard');
     var playerCards = document.querySelectorAll('.playercard .fullcard');
     var computerCards = document.querySelectorAll('.computercard .fullcard');
     var playerCardIds = [...document.querySelectorAll('.playercard .fullcard')].map(({ id }) => id);
     var computerCardIds = [...document.querySelectorAll('.computercard .fullcard')].map(({ id }) => id);
-    // console.log(playerCardIds);
-    // console.log(computerCardIds);
     
     for (let i = 0; i < playerCardIds.length - 1; i++) {
         playerCardArea.removeChild(playerCards[i]);
