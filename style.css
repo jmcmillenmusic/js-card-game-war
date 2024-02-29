@@ -106,7 +106,6 @@ button:hover {
     /* Displays all items in 1 column */
     main {
         flex-flow: column;
-        /* width: 100%; */
     }
 
     /* Reorders the elements within the playarea */
@@ -160,6 +159,30 @@ button:hover {
     }
 }
 
-@media screen and (max-width: 1024px) {
-    
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Reorders the elements within the playarea */
+    .playerdeck {
+        order: 1;
+    }
+
+    .playercard {
+        order: 4;
+    }
+
+    .buttons {
+        order: 2;
+    }
+
+    .computercard {
+        order: 5;
+    }
+
+    .computerdeck {
+        order: 3;
+    }
+
+    /* Spaces these elements so that .playercard and .computercard are on the same row */
+    .playerdeck, .buttons, .computerdeck {
+        flex-basis: 33%;
+    }
 }
