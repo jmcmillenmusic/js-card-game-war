@@ -101,7 +101,7 @@ button:hover {
     text-align: center;
 }
 
-/* Sets the following style changes for smaller screens */
+/* Sets the following style changes for smaller mobile devices */
 @media screen and (max-width: 767px) {
     /* Displays all items in 1 column */
     main {
@@ -159,7 +159,12 @@ button:hover {
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+/* Sets attributes for larger mobile devices */
+@media screen and (min-width: 768px) and (max-width: 1180px) {
+    main {
+        width: 90%;
+    }
+    
     /* Reorders the elements within the playarea */
     .playerdeck {
         order: 1;
@@ -184,5 +189,116 @@ button:hover {
     /* Spaces these elements so that .playercard and .computercard are on the same row */
     .playerdeck, .buttons, .computerdeck {
         flex-basis: 33%;
+    }
+}
+
+@media screen and (min-height: 375px) {
+    /* Shrinks face-up cards */
+    .fullcard {
+        width: 150px;
+        height: 210px;
+    }
+
+    .cardText {
+        font-size: 72px;
+    }
+}
+
+@media screen and (max-height: 540px) {
+    main {
+        width: 95%;
+    }
+    
+    /* Removes face-down cards to make room for more important elements */
+    #playercards, #computercards {
+        display: none;
+    }
+
+    /* Shrinks face-up cards */
+    .fullcard {
+        width: 100px;
+        height: 140px;
+    }
+
+    .cardText {
+        font-size: 48px;
+    }
+
+    .playerdeck, .computerdeck {
+        width: 120px;
+    }
+
+    h3, p {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    /* Spaces these elements so that .playercard and .computercard are on the same row */
+    .playerdeck, .buttons, .computerdeck {
+        flex-basis: auto;
+    }
+
+    /* Reorders the elements within the playarea */
+    .playerdeck {
+        order: 2;
+    }
+
+    .playercard {
+        order: 3;
+    }
+
+    .buttons {
+        order: 1;
+    }
+
+    .computercard {
+        order: 5;
+    }
+
+    .computerdeck {
+        order: 3;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    /* Removes face-down cards to make room for more important elements */
+    #playercards, #computercards {
+        display: none;
+    }
+    
+    /* Shrinks face-up cards */
+    .fullcard {
+        width: 150px;
+        height: 210px;
+    }
+
+    .cardText {
+        font-size: 72px;
+    }
+
+    /* Spaces these elements so that .playercard and .computercard are on the same row */
+    .playerdeck, .buttons, .computerdeck {
+        flex-basis: auto;
+    }
+
+    /* Reorders the elements within the playarea */
+    .playerdeck {
+        order: 2;
+    }
+
+    .playercard {
+        order: 3;
+    }
+
+    .buttons {
+        order: 1;
+    }
+
+    .computercard {
+        order: 5;
+    }
+
+    .computerdeck {
+        order: 3;
     }
 }
