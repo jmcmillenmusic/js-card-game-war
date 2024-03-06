@@ -37,8 +37,6 @@ function shuffle() {
             fullDeck.shift(fullDeck[0]);
         }
     }
-    // console.log(playerDeck);
-    // console.log(computerDeck);
 
     // Shows that cards have been dealt
     document.getElementById('playercards').style.visibility = 'visible';
@@ -65,9 +63,6 @@ function play() {
         computerPlay.push(computerDeck[0]);
         computerDeck.shift(computerDeck[0]);
     }
-    // console.log(playerPlay);
-    // console.log(computerPlay);
-    // console.log(playerDeck.length, computerDeck.length);
 
     // Prevents you from clicking the Play button before the play is resolved
     document.getElementById('play').disabled = true;
@@ -201,8 +196,6 @@ function compare() {
             computerCardValue = Number(computerCardValue);
             break;
     }
-    // console.log(playerCardValue);
-    // console.log(computerCardValue);
 
     // Enables buttons allowing the player to resolve each play by either taking cards, giving up cards, or going to war
     if (playerCardValue > computerCardValue) {
@@ -228,8 +221,6 @@ function removeCards() {
     var computerCards = document.querySelectorAll('.computercard .fullcard');
     var playerCardIds = [...document.querySelectorAll('.playercard .fullcard')].map(({ id }) => id);
     var computerCardIds = [...document.querySelectorAll('.computercard .fullcard')].map(({ id }) => id);
-    // console.log(playerCardIds);
-    // console.log(computerCardIds);
     
     for (let i = 0; i < playerCardIds.length; i++) {
         playerCardArea.removeChild(playerCards[i]);
@@ -250,7 +241,6 @@ function take() {
         playerDeck.push(computerPlay[0]);
         computerPlay.shift(computerPlay[0]);
     }
-    // console.log(playerDeck.length, computerDeck.length);
 
     // Toggles the Take and Play buttons to set up the next play
     document.getElementById('take').disabled = true;
@@ -277,7 +267,6 @@ function give() {
         computerDeck.push(computerPlay[0]);
         computerPlay.shift(computerPlay[0]);
     }
-    // console.log(playerDeck.length, computerDeck.length);
 
     // Toggles the Give and Play buttons to set up the next play
     document.getElementById('give').disabled = true;
@@ -316,8 +305,6 @@ function war() {
         }
     }
     document.getElementById('war').disabled = true;
-    // console.log(playerPlay);
-    // console.log(computerPlay);
 }
 
 // Removes the images of all played cards except for the last one for War purposes
