@@ -68,8 +68,8 @@ function play() {
     document.getElementById('play').disabled = true;
 }
 
+// Creates card images based on the last card you and the computer played
 function createCards() {
-    // Creates card images based on the last card you and the computer played
     // TODO: Make these 2 for loops into a singular for loop if possible
     for (let i = 0; i < playerPlay.length; i++) {
         const playerCardArea = document.getElementById('playercard');
@@ -162,34 +162,34 @@ function compare() {
     let computerCardValue = computerPlay[computerPlay.length - 1].Value;
     
     // Sets the player's card value and/or computer card's value to a number for comparing face cards (J, Q, K) and aces; otherwise, converts the cards' value from a string to a number
-    switch (true) {
-        case (playerCardValue === 'J'):
+    switch (playerCardValue) {
+        case ('J'):
             playerCardValue = 11;
             break;
-        case (playerCardValue === 'Q'):
+        case ('Q'):
             playerCardValue = 12;
             break;
-        case (playerCardValue === 'K'):
+        case ('K'):
             playerCardValue = 13;
             break;
-        case (playerCardValue === 'A'):
+        case ('A'):
             playerCardValue = 14;
             break;
         default:
             playerCardValue = Number(playerCardValue);
             break;
     }
-    switch (true) {
-        case (computerCardValue === 'J'):
+    switch (computerCardValue) {
+        case ('J'):
             computerCardValue = 11;
             break;
-        case (computerCardValue === 'Q'):
+        case ('Q'):
             computerCardValue = 12;
             break;
-        case (computerCardValue === 'K'):
+        case ('K'):
             computerCardValue = 13;
             break;
-        case (computerCardValue === 'A'):
+        case ('A'):
             computerCardValue = 14;
             break;
         default:
