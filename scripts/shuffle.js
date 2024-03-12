@@ -1,5 +1,5 @@
-// Imports all variables from base.js
-import { fullDeck, playerDeck, computerDeck, playerPlay, computerPlay, suits, values } from "./base.js";
+// Imports all variables from initial.js
+import { fullDeck, playerDeck, computerDeck, suits, values } from "./initial.js";
 
 // Creates and shuffles the deck using the Fisher-Yates Algorithm
 function shuffle() {

@@ -1,5 +1,5 @@
-// Imports the variables below from base.js
-import { playerDeck, computerDeck, playerPlay, computerPlay } from "./base.js";
+// Imports the variables below from initial.js
+import { playerDeck, computerDeck, playerPlay, computerPlay } from "./initial.js";
 
 // Plays the first card from your deck and the computer's deck
 function play() {
